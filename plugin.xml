@@ -5,6 +5,9 @@
         <clobbers target="Jumio" />
     </js-module>
     <platform name="ios">
+        <hook type="after_plugin_install" src="hooks/after_plugin_install/mergepodfile.js" />
+        <hook type="after_plugin_install" src="hooks/before_build/podInstall.js" />
+
         <config-file target="config.xml" parent="/*">
             <feature name="JumioMobileSDK">
                 <param name="ios-package" value="JumioMobileSDK" />
@@ -20,7 +23,7 @@
 
         <podspec>
             <config>
-                <source url="https://github.com/CocoaPods/Specs.git"/>
+                <source url="https://cdn.cocoapods.org/"/>
             </config>
             <pods use-frameworks="true">
                 <pod name="JumioMobileSDK" spec="3.9.1" />
