@@ -7,6 +7,7 @@
     <platform name="ios">
         <hook type="after_plugin_install" src="hooks/after_plugin_install/mergepodfile.js" />
         <hook type="after_plugin_install" src="hooks/before_build/podInstall.js" />
+        <hook type="after_plugin_install" src="hooks/modify_xcode_settings.js" />
 
         <config-file target="config.xml" parent="/*">
             <feature name="JumioMobileSDK">
