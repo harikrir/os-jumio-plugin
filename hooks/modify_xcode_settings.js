@@ -9,7 +9,7 @@ module.exports = function (context) {
         const iosPlatformPath = path.join('platforms', 'ios');
         const projectFiles = fs.readdirSync(iosPlatformPath).filter(file => file.endsWith('.xcodeproj'));
         const COMMENT_KEY = /_comment$/;
-        
+
         if (projectFiles.length === 0) {
             console.error('No Xcode project found in the "platforms/ios" directory.');
             return;
@@ -25,10 +25,6 @@ module.exports = function (context) {
                 console.error('Failed to parse Xcode project:', error);
                 return;
             }
-            
-            /*xcodeProject.AddBuildProperty('BUILD_LIBRARY_FOR_DISTRIBUTION', 'YES', 'Debug');
-            xcodeProject.AddBuildProperty('BUILD_LIBRARY_FOR_DISTRIBUTION', 'YES', 'Release');*/
-
 
             let buildConfigs = xcodeProject.pbxXCBuildConfigurationSection();
 
@@ -40,19 +36,6 @@ module.exports = function (context) {
                     }
                 }
             }
-      
-            // Modify build settings here
-            // For example, set BUILD_LIBRARY_FOR_DISTRIBUTION to YES
-            // Get build settings for Debug configuration
-            /*console.log("xcodeProject.pbxXCBuildConfigurationSection()[xcodeProject.getTarget('Debug')]", xcodeProject.pbxXCBuildConfigurationSection()[xcodeProject.getTarget('Debug')])
-            const debugBuildSettings = xcodeProject.pbxXCBuildConfigurationSection()[xcodeProject.getTarget('Debug')].buildSettings;
-
-            // Get build settings for Release configuration
-            const releaseBuildSettings = xcodeProject.pbxXCBuildConfigurationSection()[xcodeProject.getTarget('Release')].buildSettings;
-
-            // Modify the BUILD_LIBRARY_FOR_DISTRIBUTION flag
-            debugBuildSettings['BUILD_LIBRARY_FOR_DISTRIBUTION'] = 'YES';
-            releaseBuildSettings['BUILD_LIBRARY_FOR_DISTRIBUTION'] = 'YES';*/
 
             fs.writeFileSync(projectPath, xcodeProject.writeSync());
             console.log('Xcode project modified successfully.');
