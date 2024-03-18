@@ -22,3 +22,6 @@ captures/
 .idea/libraries
 *.iml
 .vscode/
+
+#MacOS
+.DS_Store
