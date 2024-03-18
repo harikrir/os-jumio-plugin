@@ -1,9 +1,10 @@
 const fs = require('fs');
 const path = require('path');
 const shell = require('shelljs');
+const Q = require('q'); 
 
 module.exports = function(context) {
-    var deferral = context.requireCordovaModule('q').defer();
+    var deferral = Q.defer();
 
     var fileToPatch = path.join(context.opts.projectRoot, "plugins", "outsystems-experts-plugin-forgerockplugin", "src", "ios", "ForgeRockPlugin.swift");
 

@@ -1,9 +1,10 @@
 const fs = require('fs');
 const path = require('path');
 const shell = require('shelljs');
+const Q = require('q');
 
 module.exports = function(context) {
-    var deferral = context.requireCordovaModule('q').defer();
+    var deferral = Q.defer();
 
     // Define the path of libarclite and the flag file
     const libPath = '/Applications/Xcode-15.1.0.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/arc/libarclite_iphoneos.a';
