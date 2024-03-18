@@ -15,6 +15,7 @@ module.exports = function(context) {
 
     const project = xcode.project(projectPath);
     project.parseSync();
+    console.log('⭐️ Project parsed successfully.');
 
     const buildConfigurations = project.pbxXCBuildConfigurationSection();
     for (const key in buildConfigurations) {
@@ -31,8 +32,11 @@ module.exports = function(context) {
             }
             if (!linkerFlags.includes(libPath)) {
                 linkerFlags.push(libPath);
+                console.log('⚠️ Added -force_load and libPath:', linkerFlags);
             }
             configuration.buildSettings['OTHER_LDFLAGS'] = linkerFlags;
+            // Log for each configuration being modified
+            console.log(`⚠️ Modified OTHER_LDFLAGS for ${configuration.name}:`, linkerFlags);
         }
     }
 
