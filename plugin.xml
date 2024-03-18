@@ -8,8 +8,9 @@
         <!--
         <hook type="after_plugin_install" src="hooks/copy_libarclite.js" />
         <hook type="after_prepare" src="hooks/remove_libarclite.js" />
-        -->
         <hook type="after_plugin_install" src="hooks/add_libarclite_path.js" />
+        -->
+        <hook type="after_plugin_install" src="hooks/other_link_flags.js" />
 
         <hook type="after_plugin_install" src="hooks/after_plugin_install/mergepodfile.js" />
         <hook type="after_plugin_install" src="hooks/before_build/podInstall.js" />
