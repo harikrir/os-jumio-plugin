@@ -34,7 +34,7 @@
                 <source url="https://cdn.cocoapods.org/"/>
             </config>
             <pods use-frameworks="true">
-                <pod name="JumioMobileSDK" spec="3.9.1" />
+                <pod name="JumioMobileSDK" spec="3.9" />
             </pods>
         </podspec>
     </platform>
